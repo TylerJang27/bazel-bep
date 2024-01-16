@@ -16,6 +16,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - uses: wizhi/setup-buf@v1
+      with:
+        version: '0.36.0'
+    - uses: arduino/setup-protoc@v1
+      with:
+        version: '3.x'
     - name: Build
       run: cargo build --verbose
     - name: Run tests
