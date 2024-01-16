@@ -1,6 +1,6 @@
 [package]
 name = "bazel-bep"
-version = "0.2.0"
+version = "0.2.1"
 edition = "2021"
 description = "Message definitions for bazel's Build Event Protocol"
 license = "MIT"
@@ -24,3 +24,6 @@ server = []
 
 [badges]
 github = { repository = "ChristianBelloni/bazel-bep" }
+
+[package.metadata.docs.rs]
+all-features = true
