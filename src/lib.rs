@@ -1,6 +1,6 @@
 //! # Rust types and traits definitions to implement Bazel's Build event protcol.
 //!
-//! To learn what does what check out [bazel docs](https://bazel.build/remote/bep)
+//! To learn what does what check out [bazel's docs](https://bazel.build/remote/bep)
 
 pub use prost_types;
 
