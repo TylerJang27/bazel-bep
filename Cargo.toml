@@ -1,0 +1,20 @@
+[package]
+name = "bazel-bep"
+version = "0.1.0"
+edition = "2021"
+description = "Message definitions for bazel's Build Event Protocol"
+license = "MIT"
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tonic = "0.10"
+prost = "0.12"
+prost-types = "0.12"
+axum = "0.6"
+bytes = "1.5"
+tokio-stream = "0.1"
+tracing = "0.1"
+tokio = { version = "1.35", features = ["sync", "rt"] }
+
+[build-dependencies]
+tonic-build = "0.10"
