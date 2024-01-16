@@ -1,4 +1,4 @@
-pub mod server;
+pub use prost_types;
 
 pub mod build_event_stream {
     include!(concat!(env!("OUT_DIR"), "/build_event_stream.rs"));
