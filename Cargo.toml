@@ -4,6 +4,8 @@ version = "0.2.0"
 edition = "2021"
 description = "Message definitions for bazel's Build Event Protocol"
 license = "MIT"
+repository = "https://github.com/ChristianBelloni/bazel-bep"
+readme = "README.md"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
@@ -19,3 +21,6 @@ tonic-build = "0.10"
 default = []
 client = ["tonic/transport"]
 server = []
+
+[badges]
+github = { repository = "ChristianBelloni/bazel-bep" }
