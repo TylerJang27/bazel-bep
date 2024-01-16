@@ -12,8 +12,12 @@ fn main() -> io::Result<()> {
         })
         .map(|a| a.map(|a| a.path().to_string_lossy().into_owned()))
         .collect::<Result<Vec<_>, _>>()?;
-    tonic_build::configure()
-        .build_client(false)
-        .compile(&protos, &["proto/"])?;
+    let compiler = tonic_build::configure();
+    #[cfg(not(feature = "client"))]
+    let compiler = compiler.build_client(false);
+    #[cfg(not(feature = "server"))]
+    let compiler = compiler.build_server(false);
+    compiler.compile(&protos, &["proto/"])?;
+
     Ok(())
 }

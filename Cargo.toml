@@ -14,3 +14,8 @@ prost-types = "0.12"
 
 [build-dependencies]
 tonic-build = "0.10"
+
+[features]
+default = []
+client = ["tonic/transport"]
+server = []

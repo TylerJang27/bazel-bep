@@ -4,11 +4,48 @@
 
 pub use prost_types;
 
-pub mod build_event_stream {
+#[cfg(feature = "client")]
+pub mod client {
+    pub use super::google::devtools::build::v1::publish_build_event_client::*;
+}
+
+#[cfg(feature = "server")]
+pub mod server {
+    pub use super::google::devtools::build::v1::publish_build_event_server::*;
+}
+
+pub mod types {
+    pub mod build_event_stream {
+        pub use crate::build_event_stream::*;
+    }
+    pub mod blaze {
+        pub use crate::blaze::*;
+    }
+    pub mod command_line {
+        pub use crate::command_line::*;
+    }
+    pub mod failure_details {
+        pub use crate::failure_details::*;
+    }
+    pub mod options {
+        pub use crate::options::*;
+    }
+    pub mod package_metrics {
+        pub use crate::package_metrics::*;
+    }
+    pub mod google {
+        pub use crate::google::*;
+    }
+    pub mod devtools {
+        pub use crate::devtools::*;
+    }
+}
+
+pub(crate) mod build_event_stream {
     include!(concat!(env!("OUT_DIR"), "/build_event_stream.rs"));
 }
 
-pub mod blaze {
+pub(crate) mod blaze {
     include!(concat!(env!("OUT_DIR"), "/blaze.rs"));
     pub use invocation_policy::*;
     pub mod invocation_policy {
@@ -16,23 +53,23 @@ pub mod blaze {
     }
 }
 
-pub mod command_line {
+pub(crate) mod command_line {
     include!(concat!(env!("OUT_DIR"), "/command_line.rs"));
 }
 
-pub mod failure_details {
+pub(crate) mod failure_details {
     include!(concat!(env!("OUT_DIR"), "/failure_details.rs"));
 }
 
-pub mod options {
+pub(crate) mod options {
     include!(concat!(env!("OUT_DIR"), "/options.rs"));
 }
 
-pub mod package_metrics {
+pub(crate) mod package_metrics {
     pub use crate::devtools::*;
 }
 
-pub mod google {
+pub(crate) mod google {
     pub use devtools::*;
     pub mod devtools {
         pub use build::*;
@@ -49,7 +86,7 @@ pub mod google {
     }
 }
 
-mod devtools {
+pub(crate) mod devtools {
     pub use build::*;
     pub mod build {
         pub use lib::*;
