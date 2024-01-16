@@ -1,3 +1,7 @@
+//! # Rust types and traits definitions to implement Bazel's Build event protcol.
+//!
+//! To learn what does what check out [bazel docs](https://bazel.build/remote/bep)
+
 pub use prost_types;
 
 pub mod build_event_stream {
@@ -6,6 +10,7 @@ pub mod build_event_stream {
 
 pub mod blaze {
     include!(concat!(env!("OUT_DIR"), "/blaze.rs"));
+    pub use invocation_policy::*;
     pub mod invocation_policy {
         include!(concat!(env!("OUT_DIR"), "/blaze.invocation_policy.rs"));
     }
@@ -28,13 +33,17 @@ pub mod package_metrics {
 }
 
 pub mod google {
+    pub use devtools::*;
     pub mod devtools {
+        pub use build::*;
         pub mod build {
+            pub use v1::*;
             pub mod v1 {
                 include!(concat!(env!("OUT_DIR"), "/google.devtools.build.v1.rs"));
             }
         }
     }
+    pub use api::*;
     pub mod api {
         include!(concat!(env!("OUT_DIR"), "/google.api.rs"));
     }

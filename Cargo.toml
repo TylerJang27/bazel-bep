@@ -1,6 +1,6 @@
 [package]
 name = "bazel-bep"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
 description = "Message definitions for bazel's Build Event Protocol"
 license = "MIT"
@@ -14,6 +14,3 @@ prost-types = "0.12"
 
 [build-dependencies]
 tonic-build = "0.10"
-
-[lib]
-doctest = false
