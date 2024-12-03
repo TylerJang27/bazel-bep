@@ -32,7 +32,10 @@ fn main() -> io::Result<()> {
     let descriptor_set = std::fs::read(descriptor_path)?;
     pbjson_build::Builder::new()
         .register_descriptors(&descriptor_set)?
-        .build(&[".build_event_stream"])?;
+        // This works
+        // .build(&[".build_event_stream"])?;
+        // This doesn't
+        .build(&[".failure_details", ".build_event_stream"])?;
 
     Ok(())
 }
