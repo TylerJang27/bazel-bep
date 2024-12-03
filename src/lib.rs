@@ -52,22 +52,27 @@ pub(crate) mod build_event_stream {
 
 pub(crate) mod blaze {
     include!(concat!(env!("OUT_DIR"), "/blaze.rs"));
+    include!(concat!(env!("OUT_DIR"), "/blaze.serde.rs"));
     pub use invocation_policy::*;
     pub mod invocation_policy {
         include!(concat!(env!("OUT_DIR"), "/blaze.invocation_policy.rs"));
+        include!(concat!(env!("OUT_DIR"), "/blaze.invocation_policy.serde.rs"));
     }
 }
 
 pub(crate) mod command_line {
     include!(concat!(env!("OUT_DIR"), "/command_line.rs"));
+    include!(concat!(env!("OUT_DIR"), "/command_line.serde.rs"));
 }
 
 pub(crate) mod failure_details {
     include!(concat!(env!("OUT_DIR"), "/failure_details.rs"));
+    include!(concat!(env!("OUT_DIR"), "/failure_details.serde.rs"));
 }
 
 pub(crate) mod options {
     include!(concat!(env!("OUT_DIR"), "/options.rs"));
+    include!(concat!(env!("OUT_DIR"), "/options.serde.rs"));
 }
 
 pub(crate) mod package_metrics {
@@ -103,6 +108,10 @@ pub(crate) mod devtools {
                     include!(concat!(
                         env!("OUT_DIR"),
                         "/devtools.build.lib.packages.metrics.rs"
+                    ));
+                    include!(concat!(
+                        env!("OUT_DIR"),
+                        "/devtools.build.lib.packages.metrics.serde.rs"
                     ));
                 }
             }

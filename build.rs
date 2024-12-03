@@ -35,7 +35,7 @@ fn main() -> io::Result<()> {
         // This works
         // .build(&[".build_event_stream"])?;
         // This doesn't
-        .build(&[".failure_details", ".build_event_stream"])?;
+        .build(&["."])?;
 
     Ok(())
 }
