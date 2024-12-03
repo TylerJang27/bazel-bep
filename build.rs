@@ -32,7 +32,7 @@ fn main() -> io::Result<()> {
     let descriptor_set = std::fs::read(descriptor_path)?;
     pbjson_build::Builder::new()
         .register_descriptors(&descriptor_set)?
-        .build(&[".google"])?;
+        .build(&[".build_event_stream"])?;
 
     Ok(())
 }

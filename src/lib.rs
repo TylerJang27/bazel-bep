@@ -47,7 +47,7 @@ pub mod types {
 
 pub(crate) mod build_event_stream {
     include!(concat!(env!("OUT_DIR"), "/build_event_stream.rs"));
-    // include!(concat!(env!("OUT_DIR"), "/build_event_stream.serde.rs"));
+    include!(concat!(env!("OUT_DIR"), "/build_event_stream.serde.rs"));
 }
 
 pub(crate) mod blaze {
