@@ -10,8 +10,8 @@ readme = "README.md"
 
 [dependencies]
 tonic = { version = "0.10", default-features = false, features = ["codegen", "prost"] }
-prost = "0.12"
-prost-types = "0.12"
+prost = "0.13.3"
+prost-types = "0.13.3"
 pbjson = "0.7.0"
 pbjson-types = "0.7.0"
 serde = { version = "1.0.215", default-features = false, features = ["derive"] }
